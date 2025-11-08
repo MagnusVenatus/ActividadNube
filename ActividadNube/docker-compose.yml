@@ -1,0 +1,49 @@
+services:
+  db:
+    image: mariadb:11
+    container_name: nube-db
+    environment:
+      MYSQL_DATABASE: ActNube
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_USER: Nico
+      MYSQL_PASSWORD: app123
+    volumes:
+      - act_db:/var/lib/mysql
+    restart: unless-stopped
+    networks:
+      - wp_network
+    healthcheck:
+      test: ["CMD-SHELL", "mariadb-admin ping -uroot -proot || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  wordpress:
+    image: wordpress:latest
+    container_name: wordpress_nube
+    depends_on:
+      - db
+    ports:
+      - "8082:80"
+    environment:
+      WORDPRESS_DB_TYPE: mysql
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: Nico
+      WORDPRESS_DB_PASSWORD: app123
+      WORDPRESS_DB_NAME: ActNube
+      WORDPRESS_ADMIN_USERNAME: admin
+      WORDPRESS_ADMIN_PASSWORD: admin123
+      WORDPRESS_DOMAIN: localhost
+
+    volumes:
+      - wordpress_data:/mnt/data
+    restart: unless-stopped
+    networks:
+      - wp_network
+
+volumes:
+  act_db:
+  wordpress_data:
+
+networks:
+  wp_network:
