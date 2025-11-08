@@ -36,7 +36,14 @@ rellenar datos
 
 <img width="802" height="562" alt="image" src="https://github.com/user-attachments/assets/6fdc58e2-f7d3-4fa3-8b5a-d2c0f572d3c9" />
 
-Iniciar sesion como admin (admin, admin123)
+Iniciar sesion 
+
+<img width="449" height="777" alt="image" src="https://github.com/user-attachments/assets/c6862e16-74c5-42bb-819a-240446bb63fd" />
+
+Listo
+
+<img width="1903" height="930" alt="image" src="https://github.com/user-attachments/assets/41d15571-9a95-4aa2-85fc-965e8d6be8e4" />
+
 
 
 
