@@ -1,5 +1,5 @@
 # ActividadNube
--Crear Carpeta y Crear docker-compose.yml
+-Crear Carpeta "ActividadNube" y Crear docker-compose.yml
 -en docker-compose.yml crear primera imagen bd, usar MariaDB v11, la BD se llama ActNube, Root pass: root123, usuario: Nico y Pass : app123
 -Volmen guardado de datos en /var/lib/mysql con nombre de volumen act_db
 -restart en "unless-stopped
@@ -23,6 +23,20 @@
 -agregar networks (wp_networks)
 
 <img width="172" height="129" alt="image" src="https://github.com/user-attachments/assets/9dc79def-7637-4b5c-bec7-7a4c588dec4b" />
+
+
+Ejecutar Comando: "docker run -d --name wp -p 8082:80 wordpress:6-apache" en CMD dentro de Carpeta "ActividadNube" (antes de crear y configurar docker-compose.yml)
+Ó, usar "docker compose up -d --build" despues de configurar el .yml
+
+<img width="873" height="216" alt="image" src="https://github.com/user-attachments/assets/fdaf9f7f-0b63-4b57-a5d8-e6828d251b35" />
+
+rellenar datos 
+
+<img width="765" height="896" alt="image" src="https://github.com/user-attachments/assets/bcc8687e-daa6-41d0-8dc5-6b1241aabb3d" />
+
+<img width="802" height="562" alt="image" src="https://github.com/user-attachments/assets/6fdc58e2-f7d3-4fa3-8b5a-d2c0f572d3c9" />
+
+Iniciar sesion como admin (admin, admin123)
 
 
 
