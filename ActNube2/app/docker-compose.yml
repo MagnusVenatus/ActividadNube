@@ -1,0 +1,32 @@
+services:
+  web:
+    build: 
+      context: ..
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+    ports:
+      - "6969:6969"
+    restart: unless-stopped
+    depends_on:
+      - db
+  db:
+    image: mariadb:11
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: WebDB
+      MYSQL_USER: user
+      MYSQL_PASSWORD: pass123
+    volumes:
+    - db_data:/var/lib/mysql
+    ports:
+    - "3306:3306"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "mariadb-admin ping -uroot -proot || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+volumes:
+  db_data:
